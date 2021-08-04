@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django 1 - Root Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <center>
+    <img src="{% static 'images/django_logo.png' %}" >
+
+    <h1>Index Page</h1>
+
+    <h2>{{curso}}</h2>
+
+    <h3>{{outro}}</h3>
+
+    <span>{{status}}</span>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in Produtos %}
+                <tr>
+                    <td><a href="{% url 'product' product.id %}">{{product.name}}</a></td>
+                    <td>{{product.price}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button onclick="teste();"> Clique here! </button>
+    
+    <script type ='text/javascript' src="{% static 'js/script.js' %}"></script>
+    </center>
+</body>
+</html>
